@@ -1,9 +1,0 @@
-{
-  "displayName": "Forja de extensiones: crea extensiones de VS Code con cualquier IA (MCP)",
-  "description": "Servidor MCP que enseña a cualquier IA (Claude, Copilot, Cursor, Codex…) a crear, revisar, probar y empaquetar extensiones de VS Code bilingües y con autor.",
-  "command.create": "Crear una extensión de VS Code (sin IA)",
-  "command.copyMcpConfig": "Usar desde otra IA (copiar la configuración MCP)",
-  "command.setAuthor": "Indicar autor y publisher",
-  "config.author": "Autor de las extensiones que crees (lo usan la IA y el asistente).",
-  "config.publisher": "ID de editor (publisher) del Marketplace para las extensiones nuevas (se crea en [marketplace.visualstudio.com/manage](https://marketplace.visualstudio.com/manage))."
-}
