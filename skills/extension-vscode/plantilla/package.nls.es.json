@@ -1,0 +1,11 @@
+{
+  "displayName": "{{displayNameEs}}",
+  "description": "{{descriptionEs}}",
+  "category": "{{displayNameEs}}",
+  "command.hello": "Saludar",
+  "config.author": "Autor que aparece en lo que genera la extensión.",
+  "config.language": "Idioma de lo que genera la extensión.",
+  "config.language.auto": "El de VS Code.",
+  "config.language.en": "Inglés",
+  "config.language.es": "Español"
+}

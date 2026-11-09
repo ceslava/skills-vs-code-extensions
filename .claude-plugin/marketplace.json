@@ -1,0 +1,11 @@
+{
+  "name": "ceslava-skills",
+  "owner": { "name": "ceslava" },
+  "plugins": [
+    {
+      "name": "vs-code-extensions",
+      "source": "./",
+      "description": "Skill para crear, probar, empaquetar y publicar extensiones de VS Code bilingües y con autor."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "vs-code-extensions",
+  "description": "Skill para crear, probar, empaquetar y publicar extensiones de VS Code bilingües (español e inglés) y con autor.",
+  "version": "0.1.0",
+  "author": { "name": "ceslava" },
+  "repository": "https://github.com/ceslava/skills-vs-code-extensions",
+  "license": "MIT",
+  "keywords": ["vscode", "extension", "skill", "i18n"]
+}

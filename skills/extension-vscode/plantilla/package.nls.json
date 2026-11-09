@@ -1,0 +1,11 @@
+{
+  "displayName": "{{displayNameEn}}",
+  "description": "{{descriptionEn}}",
+  "category": "{{displayNameEn}}",
+  "command.hello": "Say hello",
+  "config.author": "Author shown in the extension's output.",
+  "config.language": "Language of the extension's output.",
+  "config.language.auto": "Same as VS Code.",
+  "config.language.en": "English",
+  "config.language.es": "Spanish"
+}

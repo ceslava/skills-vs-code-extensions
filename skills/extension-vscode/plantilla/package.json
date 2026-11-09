@@ -1,0 +1,47 @@
+{
+  "name": "{{name}}",
+  "displayName": "%displayName%",
+  "description": "%description%",
+  "version": "0.1.0",
+  "publisher": "{{publisher}}",
+  "author": { "name": "{{author}}" },
+  "license": "MIT",
+  "engines": { "vscode": "^1.90.0" },
+  "categories": ["Other"],
+  "l10n": "./l10n",
+  "main": "./out/extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "commands": [
+      { "command": "{{prefix}}.hello", "title": "%command.hello%", "category": "%category%" }
+    ],
+    "configuration": {
+      "title": "%category%",
+      "properties": {
+        "{{prefix}}.author": { "type": "string", "default": "", "description": "%config.author%" },
+        "{{prefix}}.language": {
+          "type": "string",
+          "enum": ["auto", "en", "es"],
+          "enumDescriptions": ["%config.language.auto%", "%config.language.en%", "%config.language.es%"],
+          "default": "auto",
+          "description": "%config.language%"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p .",
+    "watch": "tsc -watch -p .",
+    "test": "npm run compile && node --test out/test/*.test.js",
+    "test:integration": "npm run compile && node out/integration/runTest.js",
+    "package": "vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.90.0",
+    "@vscode/test-electron": "^2.4.0",
+    "@vscode/vsce": "^3.0.0",
+    "typescript": "^5.4.0"
+  }
+}
