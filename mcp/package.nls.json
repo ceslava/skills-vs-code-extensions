@@ -1,0 +1,9 @@
+{
+  "displayName": "Extension Forge: Build VS Code Extensions with Any AI (MCP)",
+  "description": "MCP server that teaches any AI (Claude, Copilot, Cursor, Codex…) to create, check, test and package bilingual VS Code extensions with an author.",
+  "command.create": "Create a VS Code extension (without AI)",
+  "command.copyMcpConfig": "Use from another AI (copy MCP configuration)",
+  "command.setAuthor": "Set author and publisher",
+  "config.author": "Author of the extensions you create (used by the AI and by the wizard).",
+  "config.publisher": "Marketplace publisher id for new extensions (create it at [marketplace.visualstudio.com/manage](https://marketplace.visualstudio.com/manage))."
+}

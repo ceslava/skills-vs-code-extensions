@@ -1,0 +1,51 @@
+# Extension Forge: a mano (Actions → Publicar → Run workflow) o con una etiqueta vX.Y.Z.
+# Crea una versión en GitHub con el .vsix y, si existen los secretos, publica en el Marketplace (VSCE_PAT)
+# y en Open VSX (OVSX_PAT).
+name: Publicar
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mcp
+    env:
+      VSCE_PAT: ${{ secrets.VSCE_PAT }}
+      OVSX_PAT: ${{ secrets.OVSX_PAT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: mcp/package-lock.json
+      - run: npm ci
+      - name: Etiqueta de la versión
+        run: |
+          TAG="v$(node -p "require('./package.json').version")"
+          if [ "$GITHUB_REF_TYPE" = tag ] && [ "$GITHUB_REF_NAME" != "$TAG" ]; then
+            echo "La etiqueta $GITHUB_REF_NAME no coincide con la versión de package.json ($TAG)"; exit 1
+          fi
+          echo "TAG=$TAG" >> "$GITHUB_ENV"
+      - run: npm test
+      - run: xvfb-run -a npm run test:integration
+      - run: npm run package
+      - name: Versión en GitHub con el .vsix
+        run: |
+          gh release create "$TAG" *.vsix --target "$GITHUB_SHA" --title "Extension Forge $TAG" --notes "Descarga el .vsix de abajo e instálalo en VS Code (Extensiones, menú …, Instalar desde VSIX) o súbelo al Marketplace."
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Marketplace de VS Code
+        if: ${{ env.VSCE_PAT != '' }}
+        run: npx vsce publish --no-dependencies --packagePath *.vsix
+      - name: Open VSX
+        if: ${{ env.OVSX_PAT != '' }}
+        run: npx --yes ovsx publish *.vsix

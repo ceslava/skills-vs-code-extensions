@@ -108,3 +108,7 @@ npm run package                       # .vsix; lee los avisos de vsce
 - Di al usuario cómo instalar el `.vsix` y qué no se ha podido probar.
 
 Más detalle (manifiesto, API, webview, esbuild, errores típicos): `referencias/manifiesto-y-api.md`.
+
+Para otras IAs: la extensión Extension Forge (carpeta `mcp/` del repositorio de esta skill) ofrece este mismo método
+y la plantilla como servidor MCP, con las herramientas `create_vscode_extension`, `check_vscode_extension`,
+`run_vscode_extension_tests` y `package_vscode_extension`.

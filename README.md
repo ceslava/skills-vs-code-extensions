@@ -16,7 +16,13 @@ skills/extension-vscode/
 └── plantilla/                    extensión mínima que ya compila, pasa sus pruebas y se empaqueta
 ```
 
-## Instalar
+## Extension Forge: la skill como servidor MCP para cualquier IA
+
+En [`mcp/`](mcp/) está **Extension Forge**, una extensión de VS Code que sirve esta skill por MCP: Claude, Copilot,
+Cursor, Codex o cualquier cliente MCP reciben la guía y herramientas para crear, revisar, probar y empaquetar
+extensiones. Descarga el `.vsix` en [Releases](https://github.com/ceslava/skills-vs-code-extensions/releases).
+
+## Instalar la skill en Claude Code
 
 Como plugin de Claude Code:
 
